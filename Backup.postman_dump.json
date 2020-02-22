@@ -1,0 +1,166 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "5cdc48b3-6fe0-47fa-a141-3b3b40585c2d",
+			"name": "booking-tests",
+			"description": "API веб сервиса “Бронирование номера в отеле”",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"6eb3259b-8472-4221-b5bd-94ea6fd40c51",
+				"f8c74b0a-794b-4a7e-aeac-6ee5fdbab4b4",
+				"b232aafa-c643-41f6-affa-7a289c0f7e82",
+				"a7001d4f-bc86-47c8-833d-20d55c5f8cd4"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": [
+				{
+					"id": "6eb3259b-8472-4221-b5bd-94ea6fd40c51",
+					"name": "rooms",
+					"url": "{{apiBaseUrl}}/rooms",
+					"description": "Клиент может увидеть список номеров в отеле",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5cdc48b3-6fe0-47fa-a141-3b3b40585c2d",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "a7001d4f-bc86-47c8-833d-20d55c5f8cd4",
+					"name": "book room cancel",
+					"url": "{{apiBaseUrl}}/bookings/17",
+					"description": "Клиент может отменить бронь номера в отеле",
+					"data": null,
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": null,
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5cdc48b3-6fe0-47fa-a141-3b3b40585c2d",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "b232aafa-c643-41f6-affa-7a289c0f7e82",
+					"name": "book room",
+					"url": "{{apiBaseUrl}}/bookings",
+					"description": "Клиент может забронировать номер в отеле на определенный срок",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5cdc48b3-6fe0-47fa-a141-3b3b40585c2d",
+					"rawModeData": "{\n\t\"room_id\": 3,\n    \"customer_id\": 2,\n    \"book_date\": \"[2020-05-21,2020-05-22)\",\n    \"vip\": true\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "f8c74b0a-794b-4a7e-aeac-6ee5fdbab4b4",
+					"name": "rooms available",
+					"url": "{{apiBaseUrl}}/roomsExcept?from=2020-02-02&to=2020-03-15",
+					"description": "Клиент может увидеть список свободных номеров в отеле на определенный период времени",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "from",
+							"value": "2020-02-02",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "to",
+							"value": "2020-03-15",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": null,
+					"events": [],
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5cdc48b3-6fe0-47fa-a141-3b3b40585c2d",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "f0b28053-66f1-4812-9278-74372912b7db",
+			"name": "booking-test",
+			"values": [
+				{
+					"key": "apiBaseUrl",
+					"value": "http://localhost:3000",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "4d7ed743-e999-41d4-acf6-48c156def3c4",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
